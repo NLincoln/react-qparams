@@ -16,6 +16,7 @@
     "prop-types": "*",
     "query-string": ">= 5",
     "react": ">= 15",
+    "react-dom": ">= 15",
     "react-router-dom": "^4.0.0"
   },
   "devDependencies": {
