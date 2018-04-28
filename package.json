@@ -1,0 +1,10 @@
+{
+  "name": "react-qparams",
+  "version": "0.1.0",
+  "description": "Read and manipulate url query parameters with a render prop!",
+  "main": "src/index.js",
+  "repository": "https://github.com/NLincoln/react-qparams",
+  "author": "Nathan Lincoln <nlincoln@intellifarms.com>",
+  "license": "MIT",
+  "private": false
+}
