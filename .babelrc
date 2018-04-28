@@ -1,17 +1,25 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
+  "env": {
+    "test": {
+      "presets": ["env", "react"],
+      "plugins": ["transform-class-properties", "transform-object-rest-spread"]
+    },
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
 
-    "react"
-  ],
-  "plugins": [
-    "external-helpers",
-    "transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+        "react"
+      ],
+      "plugins": [
+        "external-helpers",
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
 }

@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "test": "jest",
+    "build": "NODE_ENV=production rollup -c rollup.config.js",
     "prepublish": "yarn build"
   },
   "peerDependencies": {
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -26,11 +28,19 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
+    "query-string": "^6.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.2.2",
     "rollup": "^0.58.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile":
+      "<rootDir>/node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": ["<rootDir>/setupTests.js"]
   }
 }
