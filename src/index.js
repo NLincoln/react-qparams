@@ -7,16 +7,23 @@ const QueryParams = withRouter(
   class QueryParams extends React.Component {
     static propTypes = {
       children: PropTypes.func,
-      render: PropTypes.func
+      render: PropTypes.func,
+      replace: PropTypes.bool,
     };
     setQuery = query => {
-      let currentQuery = queryString.parse(this.props.location.search);
-      this.props.history.push({
+      const currentQuery = queryString.parse(this.props.location.search);
+      const { history, replace } = this.props;
+      const newQuery = {
         search: queryString.stringify({
           ...currentQuery,
           ...query
         })
-      });
+      };
+      if (replace) {
+        history.replace(newQuery);
+      } else {
+        history.push(newQuery);
+      }
     };
     render() {
       const { location } = this.props;
