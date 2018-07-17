@@ -1,6 +1,6 @@
 import React from "react";
 import QueryParams from "./index";
-import { MemoryRouter, Route, Link } from "react-router-dom";
+import { MemoryRouter, Router, Route, Link } from "react-router-dom";
 import { mount } from "enzyme";
 
 describe("<QueryParams />", () => {
@@ -94,6 +94,35 @@ describe("<QueryParams />", () => {
       );
     });
     wrapper.find("button").simulate("click");
+    expect(wrapper.find("#url")).toHaveText("?b=c");
+    expect(wrapper.find("#a")).toHaveText("");
+    wrapper.unmount();
+  });
+  test("the query replaces the last location when replace is true", () => {
+    let wrapper = setup("?a=b&b=c", query => {
+      return (
+        <button
+          onClick={() =>
+            query.setQuery(
+              {
+                a: undefined
+              },
+              {
+                replace: true
+              }
+            )
+          }
+        >
+          <span id={"a"}>{query.a}</span>
+        </button>
+      );
+    });
+    let { history } = wrapper.find(Router).props();
+    expect(history.length).toBe(1);
+    expect(history.action).toBe("POP");
+    wrapper.find("button").simulate("click");
+    expect(history.length).toBe(1);
+    expect(history.action).toBe("REPLACE");
     expect(wrapper.find("#url")).toHaveText("?b=c");
     expect(wrapper.find("#a")).toHaveText("");
     wrapper.unmount();

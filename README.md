@@ -38,6 +38,24 @@ function RenderView(props) {
 }
 ```
 
+You can also add a replace option if you want `setQuery` to replace the last location in the history.
+
+```js
+import QueryParams from "react-qparams";
+
+function RenderView(props) {
+  return (
+    <QueryParams>
+      {query => (
+        <button onClick={() => query.setQuery({ tab: "other" }, { replace: true })}>
+          {query.tab || "default"}
+        </button>
+      )}
+    </QueryParams>
+  );
+}
+```
+
 ## Props
 
 ### `children` or `render`

@@ -9,14 +9,21 @@ const QueryParams = withRouter(
       children: PropTypes.func,
       render: PropTypes.func
     };
-    setQuery = query => {
+    setQuery = (query, options = { replace: false }) => {
       let currentQuery = queryString.parse(this.props.location.search);
-      this.props.history.push({
-        search: queryString.stringify({
-          ...currentQuery,
-          ...query
-        })
-      });
+      options.replace
+        ? this.props.history.replace({
+            search: queryString.stringify({
+              ...currentQuery,
+              ...query
+            })
+          })
+        : this.props.history.push({
+            search: queryString.stringify({
+              ...currentQuery,
+              ...query
+            })
+          });
     };
     render() {
       const { location } = this.props;
