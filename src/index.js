@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import queryString from "query-string";
+import QueryLink from "./QueryLink";
 
 const QueryParams = withRouter(
   class QueryParams extends React.Component {
@@ -39,5 +40,5 @@ const QueryParams = withRouter(
     }
   }
 );
-
+export { QueryLink, QueryParams };
 export default QueryParams;
