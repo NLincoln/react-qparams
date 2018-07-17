@@ -1,6 +1,6 @@
 {
   "name": "react-qparams",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Read and manipulate url query parameters with a render prop!",
   "main": "dist/index.js",
   "repository": "https://github.com/NLincoln/react-qparams",
@@ -40,8 +40,9 @@
     "rollup-plugin-node-resolve": "^3.3.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile":
-      "<rootDir>/node_modules/jest-enzyme/lib/index.js",
-    "setupFiles": ["<rootDir>/setupTests.js"]
+    "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "<rootDir>/setupTests.js"
+    ]
   }
 }
